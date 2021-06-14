@@ -50,18 +50,18 @@ if (!address){
     console.log('provide address')
 }
 else{
-    geocode(address[2],(error,data)=>{
+    geocode(address[2],(error,{latitude,longitude,location}={})=>{
         if (error){
             return console.log(error)
         }
         else{
     
-        forecast(data.latitude, data.longitude, (error, forecastdata) => {
+        forecast(latitude, longitude, (error, forecastdata) => {
         if (error){
             return console.log(error)
         }
         else{
-            console.log(data.location)
+            console.log(location)
             console.log(forecastdata)
         }
     
